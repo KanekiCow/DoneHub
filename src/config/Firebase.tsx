@@ -5,13 +5,21 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAd9zM2wBRE4aTEHJ2Nt3C1eoBEugT3yB4",
-  authDomain: "test-96aeb.firebaseapp.com",
-  projectId: "test-96aeb",
-  storageBucket: "test-96aeb.appspot.com",
-  messagingSenderId: "588349093363",
-  appId: "1:588349093363:web:f879b14f8b4bb6e2ce0e86",
-  measurementId: "G-8JB1RQL3HN",
+  apiKey: "AIzaSyDzrcGd3p1WWQKe0zCcgwRrn4SeeVFNb-s",
+
+  authDomain: "valaint-aa920.firebaseapp.com",
+
+  databaseURL: "https://valaint-aa920-default-rtdb.firebaseio.com",
+
+  projectId: "valaint-aa920",
+
+  storageBucket: "valaint-aa920.appspot.com",
+
+  messagingSenderId: "148390222129",
+
+  appId: "1:148390222129:web:166e43a19e630b8855f810",
+
+  measurementId: "G-Y7FW5BR7TV",
 };
 
 // Initialize Firebase

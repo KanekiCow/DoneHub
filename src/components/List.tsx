@@ -10,23 +10,32 @@ import {
 import { useEffect, useState } from "react";
 import { auth } from "../config/Firebase";
 
+interface Item {
+  id: string;
+  // Add other properties as per your data structure
+}
+
 const List = () => {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<Item[]>([]);
 
   useEffect(() => {
     const GetList = async () => {
       try {
         const user = auth.currentUser;
-        const userId = user.uid;
-        ///get data from db in "users" where userId from the logged in account is equal to the userId on the database
-        const q = query(collection(db, "users"), where("userId", "==", userId));
-        const querySnapshot = await getDocs(q);
-        ///map each data in to difference object
-        const data = querySnapshot.docs.map((doc) => {
-          return { id: doc.id, ...doc.data() };
-        });
 
-        setItems(data);
+        if (user) {
+          const userId = user.uid;
+          const q = query(
+            collection(db, "users"),
+            where("userId", "==", userId)
+          );
+          const querySnapshot = await getDocs(q);
+          const data = querySnapshot.docs.map((doc) => {
+            return { id: doc.id, ...doc.data() } as Item;
+          });
+
+          setItems(data);
+        }
       } catch (error) {
         console.log(error);
       }
@@ -35,7 +44,7 @@ const List = () => {
     GetList();
   });
 
-  const removeItem = async (docId) => {
+  const removeItem = async (docId: string) => {
     try {
       await deleteDoc(doc(db, "users", docId));
     } catch (error) {
@@ -43,14 +52,15 @@ const List = () => {
     }
   };
 
-  const formatTime = (timestamp) => {
+  const formatTime = (timestamp: any) => {
     if (timestamp) {
       const date = timestamp.toDate();
       const timeString = date.toLocaleTimeString([], { timeStyle: "short" });
       return timeString;
     }
-    return "..."; // Return an empty string or a default value when timestamp is null or undefined
+    return "...";
   };
+
   return (
     <div>
       {items.length === 0 ? (
