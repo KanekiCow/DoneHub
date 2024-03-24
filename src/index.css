@@ -14,11 +14,6 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-input{
-  text-align: center;
-  height: 30px;
-  border: 0;
-}
 
 
 a {

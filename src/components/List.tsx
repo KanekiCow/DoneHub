@@ -12,7 +12,8 @@ import { auth } from "../config/Firebase";
 
 interface Item {
   id: string;
-  // Add other properties as per your data structure
+  CreatedAt: string;
+  first: string;
 }
 
 const List = () => {
@@ -70,7 +71,7 @@ const List = () => {
           <div className="ContainerofListContainer" key={index}>
             <div className="IDFK">
               <div className="ListContainer">
-                <h1>{user?.first}</h1>
+                <h1> {user.first}</h1>
                 <button
                   className="CompleteBtn"
                   onClick={() => removeItem(user.id)}
@@ -79,7 +80,7 @@ const List = () => {
                 </button>
               </div>
 
-              <p>Created at: {formatTime(user?.CreatedAt)}</p>
+              <p>Created at: {formatTime(user.CreatedAt)}</p>
             </div>
           </div>
         ))

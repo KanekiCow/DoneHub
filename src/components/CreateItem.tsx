@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 import { auth, db } from "../config/Firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { useState, ChangeEvent } from "react";
@@ -13,7 +12,7 @@ const CreateItem = () => {
       const user = auth.currentUser;
       if (user) {
         const userId = user.uid;
-        if (inputValue.length > 2) {
+        if (inputValue.length > 2 && inputValue.length < 64) {
           const docRef = await addDoc(collection(db, "users"), {
             first: inputValue,
             userId: userId,
@@ -42,18 +41,21 @@ const CreateItem = () => {
   return (
     <>
       <div className="CreateContainer">
-        <input
-          required={true}
-          placeholder="Job To Do Here..."
-          className="Input_"
-          value={inputValue}
-          onChange={handleInputChange}
-        />
-        // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        <button className="addBtn" onClick={handleButtonClick}>
-          Add To List
-        </button>
-        <List />
+        <div className="button-container">
+          <input
+            required={true}
+            placeholder="Job To Do Here..."
+            className="Input_"
+            value={inputValue}
+            onChange={handleInputChange}
+          />
+          <button className="addBtn" onClick={handleButtonClick}>
+            Add To List
+          </button>
+        </div>
+        <div className="balls-container">
+          <List />
+        </div>
       </div>
     </>
   );

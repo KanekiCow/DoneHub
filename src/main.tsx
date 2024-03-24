@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App.tsx";
 import "./index.css";
-import NavBar from "./components/NavBar.tsx";
 
 const rootElement = document.getElementById("root");
 

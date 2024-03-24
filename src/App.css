@@ -7,7 +7,54 @@
   display: flex;
   flex-direction: column;
 }
+.Input_ {
+  text-align: center;
+  height: 25px;
+  border: 0;
+  display: inline-block;
+  font-family:
+    Circular,
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    "Helvetica Neue",
+    sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition:
+    box-shadow 0.2s,
+    -ms-transform 0.1s,
+    -webkit-transform 0.1s,
+    transform 0.1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+}
+
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.balls-container {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .ContainerofListContainer {
+  padding: 10px;
+  min-width: 1100px;
+  max-width: 1500px;
   color: rgb(214, 214, 214);
   border-radius: 10px;
   margin-top: 20px;
@@ -16,10 +63,13 @@
   background-color: rgba(0, 0, 0, 0.521);
 }
 .ListContainer {
+  justify-content: center;
+ 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
-.IDFK{
+.IDFK {
   margin-left: 30px;
 }
 .HomeContainer {
@@ -44,13 +94,21 @@
   background-color: #f47e7ed3;
 }
 .CompleteBtn {
-  margin-top: 5px;
-  margin-left: 10px;
+  width: 20%;
+  margin-top: 10px;
   background-color: #99f47ed3;
 }
 .addBtn {
-  border-radius: 0px 0px 20px 20px;
+  width: 30%;
+  border-radius: 0;
 }
+
+
+.addBtn:active {
+  transform: scale(1);
+}
+
+
 .React {
   background: linear-gradient(to bottom, rgb(127, 178, 255), #2d1ff3);
   -webkit-background-clip: text;
