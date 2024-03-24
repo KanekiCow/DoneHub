@@ -20,8 +20,6 @@ const firebaseConfig = {
   measurementId: measurementId,
 };
 
-console.log("Firebase config:", firebaseConfig); // Log Firebase configuration
-console.log(import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID);
 
 
 // Initialize Firebase
