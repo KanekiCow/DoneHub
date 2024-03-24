@@ -10,8 +10,9 @@ if (rootElement != null) {
   rootElement.style.width = "100vw"; // Set the root element's width to 100% of the viewport width
 }
 
-ReactDOM.createRoot(rootElement!).render(
+ReactDOM.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
+  rootElement
 );
